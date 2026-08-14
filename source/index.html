@@ -8,19 +8,19 @@
 <body>
 <x-dc>
 <helmet>
-<meta name="ext-resource-dependency" content="assets/photo-hero.jpg" data-resource-id="res-hero">
-<meta name="ext-resource-dependency" content="assets/photo-rose.jpg" data-resource-id="res-rose">
-<meta name="ext-resource-dependency" content="assets/photo-tree.jpg" data-resource-id="res-tree">
-<meta name="ext-resource-dependency" content="assets/photo-london.jpg" data-resource-id="res-london">
-<meta name="ext-resource-dependency" content="assets/photo-kiss-cheek.jpg" data-resource-id="res-kiss">
-<meta name="ext-resource-dependency" content="assets/photo-photobooth.jpg" data-resource-id="res-photobooth">
-<meta name="ext-resource-dependency" content="assets/photo-maison.jpg" data-resource-id="res-maison">
-<meta name="ext-resource-dependency" content="assets/photo-lodge.jpg" data-resource-id="res-lodge">
-<meta name="ext-resource-dependency" content="assets/photo1.jpg" data-resource-id="res-photo1">
-<meta name="ext-resource-dependency" content="assets/photo3.jpg" data-resource-id="res-mem1">
-<meta name="ext-resource-dependency" content="assets/photo7.jpg" data-resource-id="res-mem2">
-<meta name="ext-resource-dependency" content="assets/photo-timessquare.jpg" data-resource-id="res-mem3">
-<meta name="ext-resource-dependency" content="assets/photo-fireplace.jpg" data-resource-id="res-mem5">
+<meta name="ext-resource-dependency" content="uploads/photo-hero.jpg" data-resource-id="res-hero">
+<meta name="ext-resource-dependency" content="uploads/photo-rose.jpg" data-resource-id="res-rose">
+<meta name="ext-resource-dependency" content="uploads/photo-tree.jpg" data-resource-id="res-tree">
+<meta name="ext-resource-dependency" content="uploads/photo-london.jpg" data-resource-id="res-london">
+<meta name="ext-resource-dependency" content="uploads/photo-kiss-cheek.jpg" data-resource-id="res-kiss">
+<meta name="ext-resource-dependency" content="uploads/photo-photobooth.jpg" data-resource-id="res-photobooth">
+<meta name="ext-resource-dependency" content="uploads/photo-maison.jpg" data-resource-id="res-maison">
+<meta name="ext-resource-dependency" content="uploads/photo-lodge.jpg" data-resource-id="res-lodge">
+<meta name="ext-resource-dependency" content="uploads/photo1.jpg" data-resource-id="res-photo1">
+<meta name="ext-resource-dependency" content="uploads/photo3.jpg" data-resource-id="res-mem1">
+<meta name="ext-resource-dependency" content="uploads/photo7.jpg" data-resource-id="res-mem2">
+<meta name="ext-resource-dependency" content="uploads/photo-timessquare.jpg" data-resource-id="res-mem3">
+<meta name="ext-resource-dependency" content="uploads/photo-fireplace.jpg" data-resource-id="res-mem5">
 <template id="__bundler_thumbnail" data-bg-color="#20261f">
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <text x="50" y="46" font-family="Georgia,serif" font-style="italic" font-size="22" fill="#a9c2b3" text-anchor="middle">L &amp; PA</text>
@@ -53,7 +53,7 @@
 
 <!-- LOGIN SCREEN -->
 <sc-if value="{{ !loggedIn }}" hint-placeholder-val="{{ true }}">
-<div style="position:fixed;inset:0;z-index:1000;background:#20261f">
+<div style="position:fixed;inset:0;z-index:1000;background:#20261f;overflow-y:auto">
   <div style="position:absolute;inset:0">
     <image-slot id="login-bg" shape="rect" placeholder="photo · vous deux" src="{{ loginBgSrc }}" style="filter:saturate(1.08) contrast(1.05) brightness(1.02) sepia(.035);object-position:50% 30%"></image-slot>
   </div>
@@ -95,7 +95,7 @@
 
   <!-- witness overlay message -->
   <sc-if value="{{ showTemoinMsg }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(32,38,31,.9);backdrop-filter:blur(8px)">
+    <div style="position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(32,38,31,.9);backdrop-filter:blur(8px);overflow-y:auto;padding:24px;box-sizing:border-box">
       <div style="max-width:560px;text-align:center;padding:48px;color:#fffdf8">
         <div style="font-family:'Fraunces',serif;font-style:italic;color:#a9c2b3;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px">Un mot pour toi</div>
         <p style="font-family:'Fraunces',serif;font-size:clamp(22px,3vw,30px);line-height:1.5;font-weight:400">{{ temoinMessage }}</p>
@@ -418,17 +418,17 @@
         <a href="https://domainedemeauce.com/les-mariages/" target="_blank" style="display:inline-block;margin-top:26px;padding:15px 32px;background:#a9c2b3;color:#20261f;text-decoration:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;border-radius:2px">{{ t.domaine_cta }}</a>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#20261f">
-      <div style="aspect-ratio:4/3;overflow:hidden">
+    <a href="https://domainedemeauce.com/les-mariages/" target="_blank" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#20261f;{{ mobileGridReset }}">
+      <div style="aspect-ratio:4/3;overflow:hidden;{{ mobileImgReset }}">
         <image-slot id="domaine-hero-2" shape="rect" placeholder="photo · le domaine" src="uploads/site-domaine-hero-2.webp" style="filter:saturate(1.08) contrast(1.05) brightness(.95) sepia(.035)"></image-slot>
       </div>
-      <div style="aspect-ratio:4/3;overflow:hidden">
+      <div style="aspect-ratio:4/3;overflow:hidden;{{ mobileImgReset }}">
         <image-slot id="domaine-hero-3" shape="rect" placeholder="photo · le domaine" src="uploads/site-domaine-hero-3.webp" style="filter:saturate(1.08) contrast(1.05) brightness(.95) sepia(.035)"></image-slot>
       </div>
-      <div style="aspect-ratio:4/3;overflow:hidden">
+      <div style="aspect-ratio:4/3;overflow:hidden;{{ mobileImgReset }}">
         <image-slot id="domaine-hero-4" shape="rect" placeholder="photo · le domaine" src="uploads/site-domaine-hero-4.webp" style="filter:saturate(1.08) contrast(1.05) brightness(.95) sepia(.035)"></image-slot>
       </div>
-    </div>
+    </a>
   </div>
 
   <!-- HEBERGEMENT SUR PLACE -->
@@ -917,105 +917,106 @@
 <script type="text/x-dc" data-dc-script>
 var GUESTS = {
   "ADMIN":{nom:"Admin",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "ADRIEN2027":{nom:"Adrien",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "ALINA2027":{nom:"Alina",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "AMBARTN2027":{nom:"Naza AMBARTSONOVA",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "ANGOTG2027":{nom:"Gabrielle ANGOT",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "ARMAND2027":{nom:"Armand",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "AUBERTE2027":{nom:"Estelle AUBERT",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "AUBERTO2027":{nom:"Olivier AUBERT",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "BAKTHAB2027":{nom:"Bilel BAKTHA",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "BAUDIMG2027":{nom:"Goulven BAUDIMANT",genre:"M",vip:true,etapes:["eglise","cocktail"]},
-  "BERTRAL2027":{nom:"Louise BERTRAND",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "BOOLUCP2027":{nom:"Paul BOOLUCK",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "BURANOE2027":{nom:"Elisabeth BURANOVSKA",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "BURANOM2027":{nom:"Marian BURANOVSKY",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "BURANOS2027":{nom:"Stefan BURANOVSKY",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "CLAUDOC2027":{nom:"Clémence CLAUDON",genre:"F",vip:true,etapes:["eglise","cocktail"]},
-  "COPINEAIME2027":{nom:"Copine Aimé",genre:"F",vip:false,etapes:[]},
-  "COPINEJORDAN2027":{nom:"Copine Jordan",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "COUBARC2027":{nom:"Christophe COUBARD",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "COUBARC20272":{nom:"Constance COUBARD",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "COUBARM2027":{nom:"Maximilien COUBARD",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "COUBARM20272":{nom:"Malaurie COUBARD",genre:"F",vip:true,etapes:["eglise","cocktail"]},
-  "COUBARS2027":{nom:"Séverine COUBARD",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "COUBARS20272":{nom:"Stéphane COUBARD",genre:"M",vip:true,etapes:["eglise","cocktail"]},
-  "DANNY2027":{nom:"Danny",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "DIOUNOJ2027":{nom:"Jordan DIOUNOU",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "DOUMENY2027":{nom:"Yoann DOUMEN",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "GAMBUTE2027":{nom:"Elliot GAMBUT",genre:"M",vip:false,etapes:["eglise","cocktail","brunch"]},
-  "GIANNIL2027":{nom:"Leonidas GIANNIKAS",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "GINTZA2027":{nom:"Alena GINTZ",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "GINTZA20272":{nom:"Amélie GINTZ",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "GINTZA20273":{nom:"Amandine GINTZ",genre:"F",vip:false,etapes:["eglise","cocktail"]},
   "GINTZC2027":{nom:"Christophe GINTZ",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "GINTZA2027":{nom:"Alena GINTZ",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "GINTZR2027":{nom:"Romain GINTZ",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],temoin:true},
+  "GINTZA20272":{nom:"Amélie GINTZ",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],temoin:true,honneur:true},
   "GINTZC20272":{nom:"Christianne GINTZ",genre:"F",vip:true,etapes:[]},
-  "GINTZJ2027":{nom:"Joëlle GINTZ",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "GINTZM2027":{nom:"Michel GINTZ",genre:"M",vip:true,etapes:[]},
+  "ZINCKG2027":{nom:"Gaspard ZINCK",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "BURANOE2027":{nom:"Elisabeth BURANOVSKA",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "BURANOS2027":{nom:"Stefan BURANOVSKY",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "BURANOM2027":{nom:"Marian BURANOVSKY",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "MIZENKD2027":{nom:"Dodo MIZENKO",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "ROHALM2027":{nom:"Milan ROHAL",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "TKACOVJ2027":{nom:"Jozef TKACOVY",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "TKACOVM2027":{nom:"Marta TKACOVA",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail"]},
   "GINTZL2027":{nom:"Laurence GINTZ",genre:"F",vip:true,etapes:["eglise","cocktail","brunch"]},
+  "GINTZM20272":{nom:"Marc GINTZ",genre:"M",vip:false,etapes:["eglise","cocktail","brunch"]},
+  "HILDV2027":{nom:"Valérie HILD",genre:"F",vip:false,etapes:["eglise","cocktail","brunch"]},
+  "JOURNOD2027":{nom:"Daniel JOURNOT",genre:"M",vip:false,etapes:["eglise","cocktail","brunch"]},
+  "GINTZR20272":{nom:"Régis GINTZ",genre:"M",vip:true,etapes:["eglise","cocktail"]},
   "GINTZL20272":{nom:"Linda GINTZ",genre:"F",vip:true,etapes:["eglise","cocktail"]},
   "GINTZL20273":{nom:"Laurie GINTZ",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "GINTZM2027":{nom:"Michel GINTZ",genre:"M",vip:true,etapes:[]},
-  "GINTZM20272":{nom:"Marc GINTZ",genre:"M",vip:true,etapes:["eglise","cocktail","brunch"]},
-  "GINTZR2027":{nom:"Romain GINTZ",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "GINTZR20272":{nom:"Régis GINTZ",genre:"M",vip:true,etapes:["eglise","cocktail"]},
+  "GINTZA20273":{nom:"Amandine GINTZ",genre:"F",vip:false,etapes:["eglise","cocktail"]},
   "GINTZV2027":{nom:"Vincent GINTZ",genre:"M",vip:true,etapes:["eglise","cocktail"]},
+  "GINTZJ2027":{nom:"Joëlle GINTZ",genre:"F",vip:true,etapes:["eglise","cocktail"]},
   "GINTZV20272":{nom:"Victoriane GINTZ",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "GLAUDEJ2027":{nom:"Jonathan GLAUDE",genre:"M",vip:true,etapes:[]},
-  "GLAUDEJ20272":{nom:"Jacqueline GLAUDE",genre:"F",vip:false,etapes:[]},
-  "GRISEVL2027":{nom:"Leya GRISEVIC",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "KIEFFEJ2027":{nom:"Jean-Marc KIEFFER",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "KIEFFEM2027":{nom:"Marie KIEFFER",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "STOLLJ2027":{nom:"Jackie STOLL",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "STOLLE2027":{nom:"Eliane STOLL",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "MEYERJ2027":{nom:"Jeanne MEYER",genre:"F",vip:false,etapes:[]},
+  "MEYERG2027":{nom:"Gilbert MEYER",genre:"M",vip:false,etapes:[]},
+  "GIANNIL2027":{nom:"Leonidas GIANNIKAS",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "NEITERL2027":{nom:"Loanne NEITER",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],honneur:true},
+  "ARMAND2027":{nom:"Armand",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "RASANAM2027":{nom:"Marjorie RASANAYAGAM",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],honneur:true},
+  "CLAUDOC2027":{nom:"Clémence CLAUDON",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "GRISEVL2027":{nom:"Leya GRISEVIC",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],honneur:true},
+  "KAYEMBA2027":{nom:"Audrey KAYEMBE",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "TAASS2027":{nom:"Sudey TAAS",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "DANNY2027":{nom:"Danny",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "ANGOTG2027":{nom:"Gabrielle ANGOT",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "BERTRAL2027":{nom:"Louise BERTRAND",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],honneur:true},
+  "AMBARTN2027":{nom:"Naza AMBARTSONOVA",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "COUBARC2027":{nom:"Christophe COUBARD",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "MAGALHL2027":{nom:"Luis MAGALHAES",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "COUBARC20272":{nom:"Constance COUBARD",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "LORENTH2027":{nom:"Hugues LORENTE",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "COUBARS2027":{nom:"Séverine COUBARD",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],temoin:true,honneur:true},
+  "BOOLUCP2027":{nom:"Paul BOOLUCK",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "COUBARM2027":{nom:"Maximilien COUBARD",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],temoin:true,honneur:true},
   "HADJARI2027":{nom:"Isack HADJAR",genre:"M",vip:false,etapes:[]},
-  "HAROA2027":{nom:"Alexandre HARO",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "HILDV2027":{nom:"Valérie HILD",genre:"F",vip:true,etapes:["eglise","cocktail","brunch"]},
+  "VAILLAM2027":{nom:"Marie-France VAILLANT",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "RAISONA2027":{nom:"Alain RAISON",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "MESLINV2027":{nom:"Valérie MESLIN",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail"]},
+  "MESLINT2027":{nom:"Thierry MESLIN",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "MESLINA2027":{nom:"Antoine MESLIN",genre:"M",vip:true,etapes:["eglise","cocktail"]},
+  "MARION2027":{nom:"Marion",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "MESLINA20272":{nom:"Adrien MESLIN",genre:"M",vip:true,etapes:["eglise","cocktail"]},
+  "NOEMIE2027":{nom:"Noémie",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "COUBARM20272":{nom:"Malaurie COUBARD",genre:"F",vip:true,etapes:["eglise","cocktail"]},
+  "ADRIEN2027":{nom:"Adrien",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "COUBARS20272":{nom:"Stéphane COUBARD",genre:"M",vip:true,etapes:["eglise","cocktail"]},
+  "SANDRINE2027":{nom:"Sandrine",genre:"F",vip:false,etapes:["eglise","cocktail"]},
   "JANSSEC2027":{nom:"Cacotte JANSSENS",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
   "JANSSEM2027":{nom:"Marco JANSSENS",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "JAUERNL2027":{nom:"Luke JAUERNIG",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "JOURNOD2027":{nom:"Dany JOURNOT",genre:"F",vip:true,etapes:["eglise","cocktail","brunch"]},
-  "KAYEMBA2027":{nom:"Audrey KAYEMBE",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "KIEFFEJ2027":{nom:"Jean-Marc KIEFFER",genre:"M",vip:true,etapes:["eglise","cocktail"]},
-  "KIEFFEM2027":{nom:"Marie KIEFFER",genre:"F",vip:true,etapes:["eglise","cocktail"]},
-  "LEA2027":{nom:"Léa",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "LORENTC2027":{nom:"Clément LORENTE",genre:"M",vip:true,etapes:[]},
-  "LORENTC20272":{nom:"Charles LORENTE",genre:"M",vip:true,etapes:[]},
-  "LORENTG2027":{nom:"Gisèle LORENTE",genre:"F",vip:true,etapes:[]},
-  "LORENTH2027":{nom:"Hugues LORENTE",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "LORENTS2027":{nom:"Salvador LORENTE",genre:"M",vip:true,etapes:[]},
-  "LUCILE2027":{nom:"Lucile",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "MAGALHL2027":{nom:"Luis MAGALHAES",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "MARION2027":{nom:"Marion",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "MARJORIE2027":{nom:"Marjorie",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "MENSAHT2027":{nom:"Théo MENSAH",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail"],honneur:true},
   "MENSAHC2027":{nom:"Claude MENSAH",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail"]},
-  "MENSAHG2027":{nom:"Guy MENSAH",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail"]},
-  "MENSAHG20272":{nom:"Giresse MENSAH",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
   "MENSAHM2027":{nom:"Mickael MENSAH",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail"]},
+  "MENSAHG2027":{nom:"Guy MENSAH",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail"]},
   "MENSAHM20272":{nom:"Maéva MENSAH",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail"]},
-  "MENSAHP2027":{nom:"Pauline MENSAH",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "MENSAHT2027":{nom:"Théo MENSAH",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "MESLINA2027":{nom:"Antoine MESLIN",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "MESLINA20272":{nom:"Adrien MESLIN",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "MESLINT2027":{nom:"Thierry MESLIN",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "MESLINV2027":{nom:"Valérie MESLIN",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "MEYERG2027":{nom:"Gilbert MEYER",genre:"M",vip:false,etapes:[]},
-  "MEYERJ2027":{nom:"Jeanne MEYER",genre:"F",vip:false,etapes:[]},
-  "MIZENKD2027":{nom:"Dodo MIZENKO",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "NEITERL2027":{nom:"Loanne NEITER",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "NOEMIE2027":{nom:"Noémie",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "MENSAHG20272":{nom:"Giresse MENSAH",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail"]},
+  "MARJORIE2027":{nom:"Marjorie",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail"]},
+  "MENSAHP2027":{nom:"Pauline MENSAH",genre:"F",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "LORENTG2027":{nom:"Gisèle LORENTE",genre:"F",vip:true,etapes:[]},
+  "LORENTS2027":{nom:"Salvador LORENTE",genre:"M",vip:true,etapes:[]},
+  "LORENTC2027":{nom:"Clément LORENTE",genre:"M",vip:false,etapes:[]},
+  "LORENTC20272":{nom:"Charles LORENTE",genre:"M",vip:false,etapes:[]},
   "OSSEC2027":{nom:"Céline OSSÉ",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "OSSEP2027":{nom:"Pascale OSSÉ",genre:"F",vip:true,etapes:[]},
+  "OSSEP2027":{nom:"Pascale OSSÉ",genre:"F",vip:false,etapes:[]},
   "OSSES2027":{nom:"Stéphanie OSSÉ",genre:"F",vip:false,etapes:[]},
-  "OSSES20272":{nom:"Sidney OSSÉ",genre:"M",vip:true,etapes:[]},
-  "RAISONA2027":{nom:"Alain RAISON",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "RASANAM2027":{nom:"Marjorie RASANAYAGAM",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "ROHALM2027":{nom:"Milan ROHAL",genre:"M",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "SAOCORA2027":{nom:"Aimé SAO-CORDIEZ",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "STOLLE2027":{nom:"Eliane STOLL",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "STOLLJ2027":{nom:"Jackie STOLL",genre:"M",vip:false,etapes:["eglise","cocktail"]},
-  "TAASS2027":{nom:"Sudey TAAS",genre:"F",vip:false,etapes:["eglise","cocktail"]},
-  "TKACOVJ2027":{nom:"Jozef TKACOVY",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail"]},
-  "TKACOVM2027":{nom:"Marta TKACOVA",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail"]},
-  "VAILLAM2027":{nom:"Marie-France VAILLANT",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "VIEYRAC2027":{nom:"Charles VIEYRA",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "OSSES20272":{nom:"Sidney OSSÉ",genre:"M",vip:false,etapes:[]},
+  "HAROA2027":{nom:"Alexandre HARO",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],honneur:true},
+  "DOUMENY2027":{nom:"Yoann DOUMEN",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],honneur:true},
   "VUILLEL2027":{nom:"Laure VUILLEMIN",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
-  "ZINCKG2027":{nom:"Gaspard ZINCK",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"]}
+  "BAUDIMG2027":{nom:"Goulven BAUDIMANT",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "LEA2027":{nom:"Léa",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "BAKTHAB2027":{nom:"Bilel BAKTHA",genre:"M",vip:true,etapes:["vendredi","eglise","cocktail","brunch"],honneur:true},
+  "LUCILE2027":{nom:"Lucile",genre:"F",vip:false,etapes:["vendredi","eglise","cocktail","brunch"]},
+  "AUBERTO2027":{nom:"Olivier AUBERT",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "AUBERTE2027":{nom:"Estelle AUBERT",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "DIOUNOJ2027":{nom:"Jordan DIOUNOU",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "COPINEJORDAN2027":{nom:"Copine Jordan",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "SAOCORA2027":{nom:"Aimé SAO-CORDIEZ",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "COPINEAIME2027":{nom:"Copine Aimé",genre:"F",vip:false,etapes:[]},
+  "JAUERNL2027":{nom:"Luke JAUERNIG",genre:"M",vip:true,etapes:["eglise","cocktail"],honneur:true},
+  "GAMBUTE2027":{nom:"Elliot GAMBUT",genre:"M",vip:false,etapes:["eglise","cocktail","brunch"]},
+  "ALINA2027":{nom:"Alina",genre:"F",vip:false,etapes:["eglise","cocktail"]},
+  "VIEYRAC2027":{nom:"Charles VIEYRA",genre:"M",vip:false,etapes:["eglise","cocktail"]},
+  "GLAUDEJ2027":{nom:"Jonathan GLAUDE",genre:"M",vip:false,etapes:[]},
+  "GLAUDEJ20272":{nom:"Jacqueline GLAUDE",genre:"F",vip:false,etapes:[]}
 };
 
 var TEMOINS = {
@@ -1269,12 +1270,12 @@ var ALLERGIE_ICON_PATHS = {
 };
 var FAQ_DATA_I18N = {
   fr: [
-    {q:"Pouvons-nous venir accompagné(e) ?", a:"Chaque invitation est nominative, pensée pour vous et pour les personnes explicitement citées sur votre faire-part ou associées à votre code. Ce choix, difficile, s'explique par la capacité limitée du domaine et nos déjà 80 invités chers à notre cœur. Si la personne qui vous accompagne habituellement n'a reçu ni faire-part ni code, sachez que nous en sommes sincèrement désolés. Merci de votre compréhension, elle compte infiniment pour nous."},
-    {q:"Pouvons-nous venir avec nos enfants ?", a:"Cette soirée sera réservée aux adultes, sans exception, même pour les tout-petits que nous adorons. Nous souhaitons que chacun, vous y compris, puisse profiter pleinement de la fête jusqu'au bout de la nuit. Pensez à organiser une garde pour le week-end si besoin, et n'hésitez pas à nous écrire pour toute question à ce sujet."},
+    {q:"Pouvons-nous venir accompagné(e) ?", a:"Chaque invitation est nominative, pensée pour toi et pour les personnes explicitement citées sur ton faire-part ou associées à ton code. Ce choix, difficile, s'explique par la capacité limitée du domaine et nos déjà 80 invités chers à notre cœur. Si la personne qui t'accompagne habituellement n'a reçu ni faire-part ni code, sache que nous en sommes sincèrement désolés. Merci de ta compréhension, elle compte infiniment pour nous."},
+    {q:"Pouvons-nous venir avec nos enfants ?", a:"Cette soirée sera réservée aux adultes, sans exception, même pour les tout-petits que nous adorons. Nous souhaitons que chacun, toi compris, puisse profiter pleinement de la fête jusqu'au bout de la nuit. Pense à organiser une garde pour le week-end si besoin, et n'hésite pas à nous écrire pour toute question à ce sujet."},
     {q:"Faut-il apporter ses draps et serviettes ?", a:"Non, tout est fourni sur le domaine : linge de lit et serviettes de toilette sont mis à disposition dans la Grand' Maison, les lodges, les cabanes et les tipis. Tu n'as rien à prévoir, il ne te reste plus qu'à profiter du séjour."},
-    {q:"Avez-vous une liste de mariage ?", a:"Votre présence est déjà le plus beau des cadeaux. Si le cœur vous en dit, vous pouvez contribuer à notre cagnotte via Revolut. Un QR code et une boîte seront aussi disponibles le soir de la fête.", link:{href:"https://revolut.me/pierrepi5", label:"Contribuer via Revolut"}},
-    {q:"La soirée dure jusqu'à quand ?", a:"Nous comptons danser jusqu'à 4h du matin, alors gardez un peu d'énergie en réserve ! Si vous dormez sur le domaine ou à proximité, aucun souci pour rentrer. Si vous repartez en voiture, pensez à prévoir un conducteur sobre ou une solution de retour."},
-    {q:"Qui contacter en cas d'imprévu le jour J ?", a:"Léa et Pierre-Alexandre seront injoignables ce jour précis, nous avons prévu d'être un peu occupés. Pour toute question de dernière minute, retard, changement ou urgence, contactez directement notre wedding planner, Tiphany, au 06 88 68 13 16, elle saura quoi faire et se fera un plaisir de vous aider."}
+    {q:"Avez-vous une liste de mariage ?", a:"Ta présence est déjà le plus beau des cadeaux. Si le cœur t'en dit, tu peux contribuer à notre cagnotte via Revolut. Un QR code et une boîte seront aussi disponibles le soir de la fête.", link:{href:"https://revolut.me/pierrepi5", label:"Contribuer via Revolut"}},
+    {q:"La soirée dure jusqu'à quand ?", a:"Nous comptons danser jusqu'à 4h du matin, alors garde un peu d'énergie en réserve ! Si tu dors sur le domaine ou à proximité, aucun souci pour rentrer. Si tu repars en voiture, pense à prévoir un conducteur sobre ou une solution de retour."},
+    {q:"Qui contacter en cas d'imprévu le jour J ?", a:"Léa et Pierre-Alexandre seront injoignables ce jour précis, nous avons prévu d'être un peu occupés. Pour toute question de dernière minute, retard, changement ou urgence, contacte directement notre coordinatrice (mise à disposition par notre wedding planner), Tiphany, au +33 6 88 68 13 16, elle saura quoi faire et se fera un plaisir de t'aider."}
   ],
   en: [
     {q:"Can we bring a plus-one?", a:"Every invitation is personal, meant for you and anyone explicitly named on your invite or linked to your code. This difficult choice comes down to the venue's limited capacity and the 80 guests already dear to our hearts. If your usual plus-one didn't receive an invite or a code, we are truly sorry. Thank you for understanding, it means the world to us."},
@@ -1282,15 +1283,15 @@ var FAQ_DATA_I18N = {
     {q:"Do we need to bring our own linens and towels?", a:"No, everything is provided on site: bed linens and bath towels are included in the Grand' Maison, the lodges, the treehouses and the tipis. Nothing to bring, just relax and enjoy your stay."},
     {q:"Do you have a wedding registry?", a:"Your presence is already the best gift. If you'd like, you can contribute to our fund via Revolut. A QR code and a box will also be available on the night of the party.", link:{href:"https://revolut.me/pierrepi5", label:"Contribute via Revolut"}},
     {q:"How late does the party go?", a:"We plan to dance until 4am, so save some energy! If you're staying on site or nearby, no worries about getting back. If you're driving home, please arrange a sober driver or another way back."},
-    {q:"Who should we contact for a last-minute issue on the day?", a:"Léa and Pierre-Alexandre will be unreachable that day, we'll be a little busy. For anything urgent, a delay, or a change, contact our wedding planner Tiphany directly at 06 88 68 13 16, she'll know what to do and will be happy to help."}
+    {q:"Who should we contact for a last-minute issue on the day?", a:"Léa and Pierre-Alexandre will be unreachable that day, we'll be a little busy. For anything urgent, a delay, or a change, contact our on-site coordinator (provided by our wedding planner), Tiphany, directly at +33 6 88 68 13 16, she'll know what to do and will be happy to help."}
   ],
   sk: [
-    {q:"Môžeme prísť s doprovodom?", a:"Každá pozvánka je osobná, určená len pre vás a osoby výslovne uvedené na pozvánke alebo spojené s vaším kódom. Toto náročné rozhodnutie vyplýva z obmedzenej kapacity miesta a našich už 80 milovaných hostí. Ak vaša bežná spoločnosť nedostala pozvánku ani kód, je nám to naozaj ľúto. Ďakujeme za pochopenie, veľa pre nás znamená."},
-    {q:"Môžeme prísť s deťmi?", a:"Večer bude vyhradený len pre dospelých, bez výjimky, aj pre najmenších, ktorých máme veľmi rádi. Chceme, aby si každý z vás mohol párty vychutnať až do konca noci. Zvážte zabezpečenie opatrovania na víkend, ak treba, a neváhajte sa nás na čokoľvek spýtať."},
+    {q:"Môžeme prísť s doprovodom?", a:"Každá pozvánka je osobná, určená len pre teba a osoby výslovne uvedené na tvojej pozvánke alebo spojené s tvojím kódom. Toto náročné rozhodnutie vyplýva z obmedzenej kapacity miesta a našich už 80 milovaných hostí. Ak tvoja bežná spoločnosť nedostala pozvánku ani kód, je nám to naozaj ľúto. Ďakujeme za pochopenie, veľa pre nás znamená."},
+    {q:"Môžeme prísť s deťmi?", a:"Večer bude vyhradený len pre dospelých, bez výjimky, aj pre najmenších, ktorých máme veľmi rádi. Chceme, aby si aj ty mohol/mohla párty vychutnať až do konca noci. Zváž zabezpečenie opatrovania na víkend, ak treba, a neváhaj sa nás na čokoľvek spýtať."},
     {q:"Musíme si prinesť vlastnú posteľnú bielizeň a uteráky?", a:"Nie, všetko je zabezpečené na mieste: posteľná bielizeň a uteráky sú k dispozícii v Grand' Maison, v lodgeoch, na stromových domčekoch aj v tepee. Nič si nemusíš nosiť, len si užiť pobyt."},
-    {q:"Máte svadobný zoznam darov?", a:"Vaša prítomnosť je už najkrajší darček. Ak chcete, môžete prispieť do našej svadobnej pokladničky cez Revolut. QR kód a krabička budú k dispozícii aj v deň oslavy.", link:{href:"https://revolut.me/pierrepi5", label:"Prispieť cez Revolut"}},
-    {q:"Dokedy trvá večer?", a:"Plánujeme tancovať do 4:00 ráno, tak si šetrite energiu! Ak prespávate na mieste alebo blízko, o návrat sa nemusíte starať. Ak odchádzate autom, zariaďte si triezveho vodiča alebo iný spôsob návratu."},
-    {q:"Koho kontaktovať v prípade problému v deň D?", a:"Léa a Pierre-Alexandre budú ten deň nedostupní, budeme trochu zaneprázdnení. Pri akejkoľvek naliehavej otázke, omeškaní alebo zmene kontaktujte priamo našu svadobnú koordinátorku Tiphany na 06 88 68 13 16, bude vedieť, čo robiť, a rada pomôže."}
+    {q:"Máte svadobný zoznam darov?", a:"Tvoja prítomnosť je už najkrajší darček. Ak cheš, môžeš prispieť do našej svadobnej pokladničky cez Revolut. QR kód a krabička budú k dispozícii aj v deň oslavy.", link:{href:"https://revolut.me/pierrepi5", label:"Prispieť cez Revolut"}},
+    {q:"Dokedy trvá večer?", a:"Plánujeme tancovať do 4:00 ráno, tak si šetri energiu! Ak prespávaš na mieste alebo blízko, o návrat sa nemusíš starať. Ak odchádzaš autom, zariaď si triezveho vodiča alebo iný spôsob návratu."},
+    {q:"Koho kontaktovať v prípade problému v deň D?", a:"Léa a Pierre-Alexandre budú ten deň nedostupní, budeme trochu zaneprázdnení. Pri akejkoľvek naliehavej otázke, omeškaní alebo zmene kontaktuj priamo našu koordinátorku (ktorú nám zabezpečila naša wedding planner agentúra), Tiphany, na +33 6 88 68 13 16, bude vedieť, čo robiť, a rada pomôže."}
   ]
 };
 
@@ -1354,8 +1355,8 @@ var TRANSLATIONS = {
     faq_dress_a_demoiselle:"En tant que demoiselle d'honneur, choisis ta robe longue ou mi-longue en vert sauge, à valider avec Léa avant achat.",
     faq_dress_a_garcon:"En tant que garçon d'honneur, les couleurs précises te seront communiquées plus tard par PA : prévois d'ores et déjà une touche de vert sauge dans ta tenue.",
     faq_dress_link_label:"Voir la section Dress code",
-    faq_dormir_q:"Pouvons-nous dormir sur place ?", faq_dormir_a:"Oui, et nous te le conseillons vivement pour profiter pleinement de la soirée sans penser à la route du retour. Chambres dans la Grand' Maison, lodges, cabanes perchées et tipis sont disponibles à 30€ par personne et par nuit, à réserver directement depuis ton formulaire de réponse. Les places sont limitées, décide-toi rapidement.",
-    faq_dormir_a_vip_suffix:" Ton hébergement est offert pour tout le week-end.",
+    faq_dormir_q:"Pouvons-nous dormir sur place ?", faq_dormir_a:"Oui, et nous te le conseillons vivement pour profiter pleinement de la soirée sans penser à la route du retour. Chambres dans la Grand' Maison, lodges, cabane perchée et tipis sont disponibles à 30€ par personne et par nuit, à réserver directement depuis ton formulaire de réponse. Les places sont limitées, décide-toi rapidement.",
+    faq_dormir_a_vip:"Oui ! Et comme tu comptes beaucoup pour nous, ton hébergement (chambre dans la Grand' Maison, lodge, cabane perchée ou tipi) est offert pour tout le week-end — pas besoin de réserver ni de payer, on s'occupe de tout. Le logement exact te sera communiqué avant ton arrivée.",
     faq_covoit_q:"Comment fonctionne l'espace covoiturage ?", faq_covoit_a:"Une fois ta présence confirmée, tu peux proposer des places dans ta voiture ou rechercher un covoiturage avec d'autres invités, directement dans l'espace covoiturage.",
     faq_covoit_link_label:"Voir l'espace covoiturage",
     faq_title_1:"Avant de", faq_title_em:"venir",
@@ -1378,7 +1379,7 @@ var TRANSLATIONS = {
     infos_car_title:"En voiture", infos_car_p:"À 1h30 de Paris environ.",
     infos_train_title:"En train", infos_train_p:"Gare de Nogent-le-Rotrou ou de La Loupe : nous pouvons nous organiser pour venir te chercher. Covoiturage à organiser via l'espace covoiturage.",
     heberg_p_normal:"Nous avons négocié un tarif à 30€ par personne et par nuit pour rester dormir sur le domaine, ensemble, sans reprendre la route. Les places sont limitées : indique ton choix dans ta réponse dès que possible. Le logement exact te sera communiqué avant ton arrivée.",
-    heberg_p_vip:"Tu comptes beaucoup pour nous, alors ton hébergement est offert tout le week-end. Le logement exact te sera communiqué avant ton arrivée.",
+    heberg_p_vip:"Tu comptes beaucoup pour nous, et pour nous assurer que tu profites à fond avec nous tout le week-end, on t'offre le logement pour toute la durée du séjour. Le logement exact te sera communiqué avant ton arrivée.",
     heberg_cta:"Découvrir",
     gites_eyebrow:"À proximité", gites_title_1:"Autres", gites_title_em:"hébergements",
     rsvp_heading_suffix:", dis-nous vite si tu seras des nôtres",
@@ -1389,7 +1390,7 @@ var TRANSLATIONS = {
     rsvp_cal_wedding_gcal:"Mariage (Google)", rsvp_cal_wedding_ics:"Mariage (Apple/Outlook)",
     rsvp_error_msg_pre:"Dis-nous juste si tu seras", rsvp_error_msg_post:".",
     rsvp_etapes_sub_pre:"Clique sur chaque étape à laquelle tu seras",
-    success_non_pre:"Merci", success_non_post:", nous sommes tristes de ne pas t'avoir parmi nous mais nous pensons à toi le 14 août.",
+    success_non_pre:"Merci", success_non_post:", nous sommes tristes de ne pas t'avoir parmi nous mais nous penserons à toi le 14 août.",
     success_oui_pre:"Merci", success_oui_post:", nous sommes heureux de t'avoir parmi nous pour notre mariage.",
     adj_conv_m:"convié", adj_conv_f:"conviée", adj_pres_m:"présent", adj_pres_f:"présente",
     honn_m:"garçon d'honneur", honn_f:"demoiselle d'honneur",
@@ -1461,8 +1462,8 @@ var TRANSLATIONS = {
     faq_dress_a_demoiselle:"As a bridesmaid, choose a long or midi dress in sage green, to validate with Léa before buying it.",
     faq_dress_a_garcon:"As a groomsman, the exact colors will be shared later by PA: plan for a touch of sage green in your outfit already.",
     faq_dress_link_label:"See the Dress code section",
-    faq_dormir_q:"Can we stay overnight on site?", faq_dormir_a:"Yes, and we highly recommend it so you can fully enjoy the evening without worrying about the drive home. Rooms in the Grand' Maison, lodges, treehouses and tipis are available for €30 per person per night, book directly through your RSVP form. Spots are limited, so decide soon.",
-    faq_dormir_a_vip_suffix:" Your accommodation is covered for the whole weekend.",
+    faq_dormir_q:"Can we stay overnight on site?", faq_dormir_a:"Yes, and we highly recommend it so you can fully enjoy the evening without worrying about the drive home. Rooms in the Grand' Maison, lodges, treehouse and tipis are available for €30 per person per night, book directly through your response form. Spots are limited, so decide soon.",
+    faq_dormir_a_vip:"Yes! And since you mean a lot to us, your accommodation (room in the Grand' Maison, lodge, treehouse or tipi) is covered for the whole weekend — no need to book or pay, we've got it covered. The exact accommodation will be shared before you arrive.",
     faq_covoit_q:"How does the carpool space work?", faq_covoit_a:"Once your attendance is confirmed, you can offer seats in your car or look for a carpool with other guests, directly in the carpool space.",
     faq_covoit_link_label:"See the carpool space",
     faq_title_1:"Before you", faq_title_em:"arrive",
@@ -1568,8 +1569,8 @@ var TRANSLATIONS = {
     faq_dress_a_demoiselle:"Ako družička si vyber dlhé alebo midi šaty vo farbe sauge zelená, treba ich odsúhlasiť s Léou pred kúpou.",
     faq_dress_a_garcon:"Ako družba ti presné farby oznámi neskôr PA: priprav sa už teraz na detail vo farbe sauge zelená.",
     faq_dress_link_label:"Zobraziť sekciu Dress code",
-    faq_dormir_q:"Môžeme prespať na mieste?", faq_dormir_a:"Áno, a vrelo to odporúčame, aby ste si užili večer bez obáv o cestu domov. Izby vo Grand' Maison, lodge, domčeky na strome a tepee sú k dispozícii za 30 € na osobu a noc, rezervujte priamo vo formulári odpovede. Miest je obmedzený počet, rozhodnite sa čoskoro.",
-    faq_dormir_a_vip_suffix:" Tvoje ubytovanie je hradené na celý víkend.",
+    faq_dormir_q:"Môžeme prespať na mieste?", faq_dormir_a:"Áno, a vrelo to odporúčame, aby ste si užili večer bez obáv o cestu domov. Izby vo Grand' Maison, lodge, domček na strome a tepee sú k dispozícii za 30 € na osobu a noc, rezervujte priamo vo formulári odpovede. Miest je obmedzený počet, rozhodnite sa čoskoro.",
+    faq_dormir_a_vip:"Áno! A pretože nám na tebe veľmi záleží, tvoje ubytovanie (izba v Grand' Maison, lodge, domček na strome alebo tepee) je hradené na celý víkend — nemusíš nič rezervovať ani platiť, postaráme sa o všetko. Presné ubytovanie ti oznámime pred príchodom.",
     faq_covoit_q:"Ako funguje priestor pre spolujazdu?", faq_covoit_a:"Po potvrdení účasti môžeš ponúknuť miesta vo svojom aute alebo si nájsť spolujazdu s inými hosťami priamo v priestore pre spolujazdu.",
     faq_covoit_link_label:"Zobraziť priestor pre spolujazdu",
     faq_title_1:"Než", faq_title_em:"prídete",
@@ -1603,7 +1604,7 @@ var TRANSLATIONS = {
     rsvp_cal_wedding_gcal:"Svadba (Google)", rsvp_cal_wedding_ics:"Svadba (Apple/Outlook)",
     rsvp_error_msg_pre:"Daj nám vedieť, či budeš", rsvp_error_msg_post:".",
     rsvp_etapes_sub_pre:"Klikni na každú časť, na ktorej budeš",
-    success_non_pre:"Ďakujeme", success_non_post:", je nám ľúto, že nebudeš s nami, ale 14. augusta na teba myslíme.",
+    success_non_pre:"Ďakujeme", success_non_post:", je nám ľúto, že nebudeš s nami, ale 14. augusta na teba budeme myslieť.",
     success_oui_pre:"Ďakujeme", success_oui_post:", sme šťastní, že budeš s nami na našej svadbe.",
     adj_conv_m:"pozvaný", adj_conv_f:"pozvaná", adj_pres_m:"prítomný", adj_pres_f:"prítomná",
     honn_m:"družba", honn_f:"družička",
@@ -1679,7 +1680,12 @@ class Component extends DCLogic {
           var r2 = self.coverEl.getBoundingClientRect();
           coverP = clamp(-r2.top/(r2.height - window.innerHeight), 0, 1);
         }
-        self.setState({ navHidden: navHidden, scrollProgress: sp, introProgress: introP, coverProgress: coverP, coverManual: null, showBackToTop: y > 800 });
+        var spR = Math.round(sp*4)/4, introR = Math.round(introP*100)/100, coverR = Math.round(coverP*100)/100;
+        var backTop = y > 800;
+        var prev = self.state;
+        if (prev.navHidden !== navHidden || prev.scrollProgress !== spR || prev.introProgress !== introR || prev.coverProgress !== coverR || prev.showBackToTop !== backTop || prev.coverManual !== null) {
+          self.setState({ navHidden: navHidden, scrollProgress: spR, introProgress: introR, coverProgress: coverR, coverManual: null, showBackToTop: backTop });
+        }
         self._scrolling = false;
       });
     };
@@ -2158,9 +2164,9 @@ class Component extends DCLogic {
       ? "display:block;background:none;border:1px solid #20261f;width:44px;height:44px;min-width:44px;border-radius:50%;cursor:pointer;flex-shrink:0"
       : "display:none";
     var mobileMenuStyle = {
-      position:"fixed", inset:0, zIndex:600, background:"#20261f",
+      position:"fixed", inset:0, zIndex:600, background:"#20261f", overflowY:"auto",
       display: (s.isMobile && s.mobileMenuOpen) ? "flex" : "none",
-      flexDirection:"column", alignItems:"center", justifyContent:"center", gap:"22px"
+      flexDirection:"column", alignItems:"center", justifyContent:"center", gap:"22px", padding:"40px 24px", boxSizing:"border-box"
     };
     var mobileGridReset = s.isMobile ? "grid-column:1/-1;grid-row:auto;" : "";
     var mobileImgReset = s.isMobile ? "grid-column:1/-1;grid-row:auto;min-height:260px;" : "";
@@ -2178,7 +2184,7 @@ class Component extends DCLogic {
     var histoireVoyageSrc = "uploads/site-histoire-voyage.webp";
     var histoireDemandeSrc = "uploads/site-histoire-demande.webp";
     var domaineHeroSrc = "uploads/site-domaine-hero.webp";
-    var heroPhotos = [{ label: "photo · vous deux", src: "assets/photo-hero.jpg", style: { position:"absolute", inset:0, opacity:1, overflow:"hidden" } }];
+    var heroPhotos = [{ label: "photo · vous deux", src: "uploads/photo-hero.jpg", style: { position:"absolute", inset:0, opacity:1, overflow:"hidden" } }];
 
     function makeLetters(str, offset) {
       return str.split("").map(function(ch,i){
@@ -2198,7 +2204,7 @@ class Component extends DCLogic {
       return { transform:"scale("+scale+")", opacity: opacity, willChange:"transform,opacity" };
     }
 
-    var cfSrcs = [R0["res-mem1"] || "assets/photo3.jpg", R0["res-mem2"] || "assets/photo7.jpg", R0["res-mem3"] || "assets/photo-timessquare.jpg", R0["res-mem4"] || "", R0["res-mem5"] || "assets/photo-fireplace.jpg"];
+    var cfSrcs = [R0["res-mem1"] || "uploads/photo3.jpg", R0["res-mem2"] || "uploads/photo7.jpg", R0["res-mem3"] || "uploads/photo-timessquare.jpg", R0["res-mem4"] || "", R0["res-mem5"] || "uploads/photo-fireplace.jpg"];
     var cfLabels = ["souvenir · randonnée","souvenir · plage","souvenir · concert","souvenir · road trip","souvenir · brunch dominical"];
     var memoryIndex = s.memoryIndex || 0;
     var memoryPhotos = cfLabels.map(function(label,i){
@@ -2536,7 +2542,7 @@ class Component extends DCLogic {
     var dressOpen = !!s.faqOpen["dress"];
     faqs.splice(2, 0, { q: t.faq_dress_q, a: dressAnswer, link: {href:"#dress", label:t.faq_dress_link_label}, open: dressOpen, icon: dressOpen?"–":"+", toggle: function(){ self.toggleFaq("dress"); } });
 
-    var dormirAnswer = t.faq_dormir_a + (guest.vip ? t.faq_dormir_a_vip_suffix : "");
+    var dormirAnswer = guest.vip ? t.faq_dormir_a_vip : t.faq_dormir_a;
     var dormirOpen = !!s.faqOpen["dormir"];
     faqs.splice(3, 0, { q: t.faq_dormir_q, a: dormirAnswer, link: null, open: dormirOpen, icon: dormirOpen?"–":"+", toggle: function(){ self.toggleFaq("dormir"); } });
 
